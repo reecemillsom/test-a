@@ -7,4 +7,5 @@ export interface Creature {
     position: Position;
     species: Species;
     family: Family;
+    found: boolean;
 }

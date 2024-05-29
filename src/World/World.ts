@@ -7,7 +7,7 @@ export default class World implements IWorld {
     creatures: Creature[];
     area: number;
 
-    constructor(collector: Collector, creatures: Omit<ICreature, 'position'>[], area: number) {
+    constructor(collector: Collector, creatures: Omit<ICreature, 'position' | 'found'>[], area: number) {
         this.collector = collector;
         this.area = area;
 
@@ -26,7 +26,7 @@ export default class World implements IWorld {
             const collectorPosition = this.getCollector().position;
 
             // TODO in order to cover the case where multiple creatures are in the immediate area, this will need to change to filter.
-            const creature = this.creatures.find((creature, index) =>
+            const creature = this.creatures.find((creature) =>
                 Math.abs(collectorPosition.x - creature.position.x) === 1 &&
                 Math.abs(collectorPosition.y - creature.position.y) === 1 &&
                 !creature.getFound()

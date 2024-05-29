@@ -1,6 +1,5 @@
 import type { Creature as ICreature, Family, Position, Species } from "../models";
 
-// TODO add found status to the creature.
 export default class Creature implements ICreature {
     family: Family;
     species: Species;

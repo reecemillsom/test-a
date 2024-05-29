@@ -16,7 +16,6 @@ export default class Collector implements ICollector {
         this.position.y = y;
     }
 
-    // TODO add to collection?
     public setCollection(creature: ICreature): void {
         this.collection.push(creature);
     }
