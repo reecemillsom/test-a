@@ -1,7 +1,7 @@
 import { Creature, Family, Species } from "../models";
 
 // TODO once typings are fixes and changes made, then, add more creatures.
-const CREATURES: Omit<Creature, "position" | "found ">[] = [
+const CREATURES: Omit<Creature, "position" | "found">[] = [
   {
     family: Family.Swimmer,
     species: Species.Shark,
@@ -13,6 +13,10 @@ const CREATURES: Omit<Creature, "position" | "found ">[] = [
   {
     family: Family.Runner,
     species: Species.Lion,
+  },
+  {
+    family: Family.Runner, // TODO this should fail with stricter typings.
+    species: Species.Bird,
   },
 ];
 

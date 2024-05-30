@@ -28,8 +28,6 @@ export default class World implements IWorld {
   public catchEmAll(): void {
     while (this.getCollector().collection.length !== this.creatures.length) {
       const collectorPosition = this.getCollector().position;
-
-      // TODO in order to cover the case where multiple creatures are in the immediate area, this will need to change to filter.
       const creature = this.creatures.find(
         (creature) =>
           Math.abs(collectorPosition.x - creature.position.x) === 1 &&
