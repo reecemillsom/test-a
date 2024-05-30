@@ -1,4 +1,4 @@
-import { Creature as ICreature, Family, Species } from "../models";
+import { ICreature, Family, Species } from "../models";
 import Collector from "../Collector/Collector";
 import Creature from "../Creature/Creature";
 import World from "./World";

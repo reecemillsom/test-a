@@ -1,9 +1,9 @@
-import { Creature } from "./Creature";
-import { Collector } from "./Collector";
+import { ICreature } from "./Creature";
+import { ICollector } from "./Collector";
 import { Family } from "./Family";
 
-export interface World {
+export interface IWorld {
   area: number;
-  creatures: Creature<Family>[];
-  collector: Collector;
+  creatures: ICreature<Family>[];
+  collector: ICollector;
 }

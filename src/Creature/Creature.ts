@@ -1,17 +1,12 @@
-import type {
-  Creature as ICreature,
-  Family,
-  Position,
-  Species,
-} from "../models";
+import type { ICreature, Family, IPosition, Species } from "../models";
 
 export default class Creature implements ICreature<Family> {
   family: Family;
   species: Species;
-  position: Position;
+  position: IPosition;
   found: boolean;
 
-  constructor(family: Family, species: Species, position: Position) {
+  constructor(family: Family, species: Species, position: IPosition) {
     this.family = family;
     this.species = species;
     this.position = position;
@@ -34,7 +29,7 @@ export default class Creature implements ICreature<Family> {
     return this.species;
   }
 
-  getPosition(): Position {
+  getPosition(): IPosition {
     return this.position;
   }
 }

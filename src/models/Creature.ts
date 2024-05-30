@@ -1,9 +1,9 @@
-import { Position } from "./Position";
+import { IPosition } from "./Position";
 import { SpeciesMap } from "./Species";
 import { Family } from "./Family";
 
-export interface Creature<T extends Family> {
-  position: Position;
+export interface ICreature<T extends Family> {
+  position: IPosition;
   family: T;
   species: SpeciesMap[T];
   found: boolean;

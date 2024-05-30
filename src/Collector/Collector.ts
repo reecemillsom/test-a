@@ -1,16 +1,11 @@
-import {
-  Collector as ICollector,
-  Creature as ICreature,
-  Family,
-  Position,
-} from "../models";
+import { ICollector, ICreature, Family, IPosition } from "../models";
 
 export default class Collector implements ICollector {
   name: string;
-  position: Position;
+  position: IPosition;
   collection: ICreature<Family>[];
 
-  constructor(name: string, position: Position) {
+  constructor(name: string, position: IPosition) {
     this.name = name;
     this.position = position;
     this.collection = [];
@@ -29,7 +24,7 @@ export default class Collector implements ICollector {
     return this.name;
   }
 
-  public getPosition(): Position {
+  public getPosition(): IPosition {
     return this.position;
   }
 

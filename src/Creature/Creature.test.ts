@@ -1,12 +1,12 @@
 import Creature from "./Creature";
-import { Family, Species, Position } from "../models";
+import { Family, Species, IPosition } from "../models";
 
 describe("Creature", () => {
   describe("when initialising", () => {
     let creature: Creature;
     let family: Family;
     let species: Species;
-    let position: Position;
+    let position: IPosition;
 
     beforeAll(() => {
       family = Family.Swimmer;
@@ -31,7 +31,7 @@ describe("Creature", () => {
     let creature: Creature;
     let family: Family;
     let species: Species;
-    let position: Position;
+    let position: IPosition;
 
     beforeAll(() => {
       family = Family.Swimmer;

@@ -1,11 +1,6 @@
 import Collector from "../Collector/Collector";
 import Creature from "../Creature/Creature";
-import {
-  Creature as ICreature,
-  Family,
-  Position,
-  World as IWorld,
-} from "../models";
+import { ICreature, Family, IPosition, IWorld } from "../models";
 
 export default class World implements IWorld {
   collector: Collector;
@@ -77,7 +72,7 @@ export default class World implements IWorld {
     return this.area;
   }
 
-  private generateCoordinates(): Position {
+  private generateCoordinates(): IPosition {
     return {
       x: Math.floor(Math.random() * this.area),
       y: Math.floor(Math.random() * this.area),
