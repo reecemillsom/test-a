@@ -128,5 +128,84 @@ describe("World", () => {
         );
       });
     });
+
+    describe("when creatures are in close vicinity to one another", () => {
+      let world: World;
+      let collector: Collector;
+      let creatures: Omit<ICreature, "position" | "found">[];
+      let area: number;
+
+      beforeAll(() => {
+        const getFoundMock = () => {
+          return jest.fn().mockReturnValueOnce(false).mockReturnValue(true);
+        };
+
+        mockMultipleSetup([
+          {
+            species: Species.Shark,
+            family: Family.Swimmer,
+            position: { x: 2, y: 0 },
+            getFound: getFoundMock(),
+            setFound: jest.fn(),
+          },
+          {
+            species: Species.Lion,
+            family: Family.Runner,
+            position: { x: 2, y: 1 },
+            getFound: getFoundMock(),
+            setFound: jest.fn(),
+          },
+          {
+            species: Species.Shark,
+            family: Family.Swimmer,
+            position: { x: 2, y: 2 },
+            getFound: getFoundMock(),
+            setFound: jest.fn(),
+          },
+          {
+            species: Species.Lion,
+            family: Family.Runner,
+            position: { x: 3, y: 0 },
+            getFound: getFoundMock(),
+            setFound: jest.fn(),
+          },
+          {
+            species: Species.Shark,
+            family: Family.Swimmer,
+            position: { x: 3, y: 1 },
+            getFound: getFoundMock(),
+            setFound: jest.fn(),
+          },
+          {
+            species: Species.Lion,
+            family: Family.Runner,
+            position: { x: 3, y: 2 },
+            getFound: getFoundMock(),
+            setFound: jest.fn(),
+          },
+        ] as any);
+
+        collector = new Collector("Ashe", { x: 0, y: 0 });
+        creatures = [
+          { species: Species.Shark, family: Family.Swimmer },
+          { species: Species.Lion, family: Family.Runner },
+          { species: Species.Shark, family: Family.Swimmer },
+          { species: Species.Lion, family: Family.Runner },
+          { species: Species.Shark, family: Family.Swimmer },
+          { species: Species.Lion, family: Family.Runner },
+        ];
+        area = 25;
+
+        world = new World(collector, creatures, area);
+      });
+
+      it("should find all the creatures", () => {
+        world.catchEmAll();
+
+        const collection = world.getCollector().collection;
+
+        expect(collection.length).toEqual(creatures.length);
+      });
+    });
   });
 });
