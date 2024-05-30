@@ -1,5 +1,5 @@
 export enum Family {
-    Flyer = 'flyer',
-    Swimmer = 'swimmer',
-    Runner = 'runner'
+  Flyer = "flyer",
+  Swimmer = "swimmer",
+  Runner = "runner",
 }

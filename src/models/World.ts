@@ -1,8 +1,8 @@
-import {Creature} from "./Creature";
-import {Collector} from "./Collector";
+import { Creature } from "./Creature";
+import { Collector } from "./Collector";
 
 export interface World {
-    area: number;
-    creatures: Creature[];
-    collector: Collector;
+  area: number;
+  creatures: Creature[];
+  collector: Collector;
 }

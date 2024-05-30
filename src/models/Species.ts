@@ -1,5 +1,5 @@
 export enum Species {
-    Bird = 'bird',
-    Shark = 'Shark',
-    Lion = 'Lion'
+  Bird = "bird",
+  Shark = "Shark",
+  Lion = "Lion",
 }
