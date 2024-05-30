@@ -3,3 +3,9 @@ export enum Species {
   Shark = "Shark",
   Lion = "Lion",
 }
+
+export type SpeciesMap = {
+  flyer: Species.Bird;
+  swimmer: Species.Shark;
+  runner: Species.Lion;
+};

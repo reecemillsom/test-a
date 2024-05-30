@@ -5,13 +5,13 @@ import World from "./World";
 
 jest.mock("../Creature/Creature");
 
-const mockOneSetup = (mock: ICreature) => {
+const mockOneSetup = (mock: ICreature<Family>) => {
   (Creature as jest.MockedClass<typeof Creature>).mockImplementation(
     () => mock as any,
   );
 };
 
-const mockMultipleSetup = (mocks: ICreature[]) => {
+const mockMultipleSetup = (mocks: ICreature<Family>[]) => {
   const creatureMock = Creature as jest.MockedClass<typeof Creature>;
 
   for (const mock of mocks) {
@@ -27,7 +27,7 @@ describe("World", () => {
   describe("when instantiated", () => {
     let world: World;
     let collector: Collector;
-    let creatures: Omit<ICreature, "position" | "found">[];
+    let creatures: Omit<ICreature<Family>, "position" | "found">[];
     let area: number;
 
     beforeAll(() => {
@@ -71,7 +71,7 @@ describe("World", () => {
     describe("when creatures are spread over the map", () => {
       let world: World;
       let collector: Collector;
-      let creatures: Omit<ICreature, "position" | "found">[];
+      let creatures: Omit<ICreature<Family>, "position" | "found">[];
       let area: number;
 
       beforeAll(() => {
@@ -132,7 +132,7 @@ describe("World", () => {
     describe("when creatures are in close vicinity to one another", () => {
       let world: World;
       let collector: Collector;
-      let creatures: Omit<ICreature, "position" | "found">[];
+      let creatures: Omit<ICreature<Family>, "position" | "found">[];
       let area: number;
 
       beforeAll(() => {

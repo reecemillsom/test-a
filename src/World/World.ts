@@ -1,7 +1,8 @@
 import Collector from "../Collector/Collector";
 import Creature from "../Creature/Creature";
-import type {
+import {
   Creature as ICreature,
+  Family,
   Position,
   World as IWorld,
 } from "../models";
@@ -13,7 +14,7 @@ export default class World implements IWorld {
 
   constructor(
     collector: Collector,
-    creatures: Omit<ICreature, "position" | "found">[],
+    creatures: Omit<ICreature<Family>, "position" | "found">[],
     area: number,
   ) {
     this.collector = collector;
@@ -26,9 +27,11 @@ export default class World implements IWorld {
   }
 
   public catchEmAll(): void {
-    while (this.getCollector().collection.length !== this.creatures.length) {
+    while (
+      this.getCollector().collection.length !== this.getCreatures().length
+    ) {
       const collectorPosition = this.getCollector().position;
-      const creature = this.creatures.find(
+      const creature = this.getCreatures().find(
         (creature) =>
           Math.abs(collectorPosition.x - creature.position.x) === 1 &&
           Math.abs(collectorPosition.y - creature.position.y) === 1 &&
@@ -50,7 +53,16 @@ export default class World implements IWorld {
       this.collector.setPosition(x, y);
     }
 
-    console.log("FOUND THEM ALL", this.getCollector().collection);
+    console.log("== TOTAL Creatures == ", this.getCreatures().length);
+    console.log(
+      "== TOTAL Collector Creatures ==",
+      this.getCollector().collection.length,
+    );
+    console.log(
+      "== CAUGHT THEM ALL ==",
+      this.getCreatures().length === this.getCollector().collection.length,
+    );
+    console.log("== Creatures Collected ==", this.getCollector().collection);
   }
 
   public getCollector(): Collector {

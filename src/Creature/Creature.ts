@@ -5,7 +5,7 @@ import type {
   Species,
 } from "../models";
 
-export default class Creature implements ICreature {
+export default class Creature implements ICreature<Family> {
   family: Family;
   species: Species;
   position: Position;
