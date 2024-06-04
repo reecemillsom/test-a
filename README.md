@@ -29,4 +29,6 @@ Commands to run:
 
 `npm t` - Run the tests of the project.
 
+`npm start` - Run the implementation, this will tell you the creatures captured and where that was.
+
 
